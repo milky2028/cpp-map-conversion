@@ -16,7 +16,8 @@ struct clipboard_entry {
   }
 };
 
-using clipboard_t = std::map<std::string, int>;
+using clipboard_t = std::map<std::string, clipboard_entry>;
+
 class Application {
  public:
   auto clipboard() {
