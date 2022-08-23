@@ -25,7 +25,8 @@ class Application {
         ._size = 5,
     };
 
-    return clippy;
+    std::map<std::string, clipboard_entry> some_map{{"entry", clippy}};
+    return some_map;
   }
 };
 
@@ -37,4 +38,7 @@ EMSCRIPTEN_BINDINGS(Application) {
   emscripten::class_<Application>("Application")
       .constructor()
       .function("clipboard", &Application::clipboard);
+
+  emscripten::register_map<std::string, clipboard_entry>(
+      "Application$Map$String$ClipboardEntry");
 }
