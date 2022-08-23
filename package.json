@@ -1,0 +1,21 @@
+{
+  "name": "cpp-map-conversion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "clean": "rm -rf ./build && mkdir build",
+    "compile": "npm run clean && emcc -s MODULARIZE=1 src/main.cpp -lembind -Wall -Wextra -Werror -O3 -o build/lib.js",
+    "run": "node src/app.js",
+    "compile-and-run": "npm run compile && npm run run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milky2028/cpp-map-conversion.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milky2028/cpp-map-conversion/issues"
+  },
+  "homepage": "https://github.com/milky2028/cpp-map-conversion#readme"
+}
