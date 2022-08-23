@@ -45,5 +45,9 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp"
-  }
+  },
+  "C_Cpp.clang_format_fallbackStyle": "Chromium",
+  "C_Cpp.default.includePath": [
+    "/Users/tgross/Documents/emsdk/upstream/emscripten/system/**"
+  ]
 }
