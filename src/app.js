@@ -4,7 +4,7 @@ async function main() {
   const instance = await Module();
   const app = new instance.Application();
 
-  console.log(app.clipboard());
+  console.log(app.clipboard()._size);
 }
 
 main();
