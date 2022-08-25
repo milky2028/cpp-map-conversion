@@ -76,10 +76,23 @@
     "thread": "cpp",
     "variant": "cpp",
     "chrono": "cpp",
-    "cinttypes": "cpp"
+    "cinttypes": "cpp",
+    "__memory": "cpp",
+    "regex": "cpp",
+    "scoped_allocator": "cpp",
+    "*.inc": "cpp",
+    "span": "cpp",
+    "stack": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp",
+    "*.ipp": "cpp",
+    "rope": "cpp",
+    "slist": "cpp",
+    "future": "cpp"
   },
   "C_Cpp.clang_format_fallbackStyle": "Chromium",
   "C_Cpp.default.includePath": [
-    "/Users/tgross/Documents/emsdk/upstream/emscripten/system/**"
+    "/Users/tgross/Documents/emsdk/upstream/emscripten/system/**",
+    "/Users/tgross/Downloads/boost/**"
   ]
 }
