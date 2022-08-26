@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="set">Send clipboard data to WASM</button>
+    <button id="get">Get data from clipboard</button>
+
+    <script src="./build/lib.js"></script>
+    <script type="module">
+      const encoder = new TextEncoder();
+      const decoder = new TextDecoder();
+      const setBtn = document.querySelector("#set");
+      const getBtn = document.querySelector("#get");
+
+      const SUPPORTED_CLIPBOARD_TYPES = new Set(["text/plain", "image/png"]);
+
+      const instance = await window.Module();
+      const app = new instance.Application();
+
+      setBtn.addEventListener("click", async () => {
+        await navigator.permissions.query({ name: "clipboard-read" });
+
+        const rawItems = await navigator.clipboard.read();
+        const clipboardWrites = rawItems.flatMap((item) =>
+          item.types.map(async (type) => {
+            if (SUPPORTED_CLIPBOARD_TYPES.has(type)) {
+              const blob = await item.getType(type);
+              const bytes = new Uint8Array(await blob.arrayBuffer());
+
+              const ptr = instance._malloc(bytes.byteLength);
+              instance.HEAPU8.set(bytes, ptr);
+              app.set_clipboard(type, bytes.byteLength, ptr);
+              instance._free(ptr);
+            }
+          })
+        );
+
+        await Promise.all(clipboardWrites);
+        console.log('data sent to clipboard');
+      });
+
+      getBtn.addEventListener("click", async () => {
+        await navigator.permissions.query({ name: "clipboard-write" });
+        const clipboardEntries = app.get_clipboard();
+        // for (let i = 0; i < clipboardEntries.keys().size(); i++) {
+        //   console.log(clipboardEntries.keys().get(i));
+        // }
+
+        console.log(clipboardEntries.keys().size());
+        console.log(clipboardEntries);
+      });
+    </script>
+  </body>
+</html>
