@@ -89,7 +89,16 @@
     "rope": "cpp",
     "slist": "cpp",
     "future": "cpp",
-    "charconv": "cpp"
+    "charconv": "cpp",
+    "any": "cpp",
+    "compare": "cpp",
+    "complex": "cpp",
+    "concepts": "cpp",
+    "coroutine": "cpp",
+    "forward_list": "cpp",
+    "format": "cpp",
+    "numbers": "cpp",
+    "ranges": "cpp"
   },
   "C_Cpp.clang_format_fallbackStyle": "Chromium",
   "C_Cpp.default.includePath": [
