@@ -98,7 +98,17 @@
     "forward_list": "cpp",
     "format": "cpp",
     "numbers": "cpp",
-    "ranges": "cpp"
+    "ranges": "cpp",
+    "__std_stream": "cpp",
+    "barrier": "cpp",
+    "cfenv": "cpp",
+    "csetjmp": "cpp",
+    "csignal": "cpp",
+    "latch": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "strstream": "cpp",
+    "typeindex": "cpp"
   },
   "C_Cpp.clang_format_fallbackStyle": "Chromium",
   "C_Cpp.default.includePath": [
