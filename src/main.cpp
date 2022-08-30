@@ -80,5 +80,5 @@ EMSCRIPTEN_BINDINGS(Application) {
       .function("set_clipboard", &set_clipboard);
 
   emscripten::register_map<std::string, emscripten::val>("Application$ClipboardEntry$Map");
-  // emscripten::register_vector<std::string>("Application$ClipboardMap$Keys");
+  emscripten::register_vector<std::string>("Application$ClipboardMap$Keys");
 }
